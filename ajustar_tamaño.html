@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema - Visión Artificial con Python</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #000;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .header {
+            padding: 3rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+            border-bottom: 2px solid;
+            border-image: linear-gradient(90deg, #ff0000, #00ff00, #0000ff) 1;
+        }
+
+        .header h1 {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .header .tema-number {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            color: #666;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #00ff00;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.03em;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #333;
+        }
+
+        .code-container {
+            background-color: #0a0a0a;
+            border: 2px solid;
+            border-image: linear-gradient(135deg, #ff0000, #00ff00, #0000ff) 1;
+            padding: 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .code-header {
+            background-color: #111;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .code-filename {
+            color: #aaa;
+            font-size: 0.9rem;
+            font-family: 'Courier New', monospace;
+        }
+
+        .copy-btn {
+            background-color: transparent;
+            border: 1px solid #333;
+            color: #fff;
+            padding: 0.4rem 1rem;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .copy-btn:hover {
+            border-color: #00ff00;
+            color: #00ff00;
+        }
+
+        .code-content {
+            padding: 1.5rem;
+            overflow-x: auto;
+        }
+
+        pre {
+            margin: 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        code {
+            color: #fff;
+        }
+
+        .keyword { color: #ff0066; }
+        .string { color: #00ff88; }
+        .comment { color: #666; }
+        .function { color: #00aaff; }
+
+        .glossary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .glossary-item {
+            background-color: #111;
+            border: 2px solid #333;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .glossary-item:hover {
+            border-color: #00ff00;
+            transform: translateY(-5px);
+        }
+
+        .glossary-function {
+            font-family: 'Courier New', monospace;
+            color: #00aaff;
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .glossary-description {
+            color: #aaa;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .back-link {
+                position: static;
+                margin-bottom: 1rem;
+                justify-content: center;
+            }
+
+            .header {
+                padding: 2rem 1rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .code-content {
+                padding: 1rem;
+            }
+
+            pre {
+                font-size: 0.85rem;
+            }
+
+            .glossary-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Volver al catálogo
+    </a>
+
+    <header class="header">
+        <p class="tema-number">TEMA 04</p>
+        <h1>Ajustar tamaño</h1>
+    </header>
+
+    <div class="container">
+        <section class="section">
+            <h2 class="section-title">Código del Ejemplo</h2>
+            <div class="code-container">
+                <div class="code-header">
+                    <span class="code-filename">ajustar_tamaño.py</span>
+                    <button class="copy-btn" onclick="copiarCodigo()">Copiar</button>
+                </div>
+                <div class="code-content">
+                    <pre><code>import cv2
+
+# Cargar la imagen
+img = cv2.imread('equipo.jpg')
+
+# Redimensionar la imagen a un tamaño fijo
+img_pequena = cv2.resize(img, (300, 200))
+
+# También puedes escalar proporcionalmente
+img_grande = cv2.resize(img_pequena, None, fx=2, fy=2,interpolation=cv2.INTER_AREA)
+"""cv2.resize(): cambia el tamaño de la imagen.
+
+img: imagen original.
+
+None: no se especifican dimensiones exactas (usará los factores de escala).
+
+fx=1.5: multiplica el ancho por 1.5 (50 % más ancho).
+
+fy=1.5: multiplica el alto por 1.5 (50 % más alto).
+
+Resultado: img_grande es la misma imagen, pero 1.5 veces más grande en ambas dimensiones."""
+
+
+# Mostrar las tres imágenes
+cv2.imshow('Original', img)
+cv2.imshow('Más pequeña', img_pequena)
+cv2.imshow('Más grande', img_grande)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Glosario de Funciones</h2>
+            <div class="glossary-grid">
+                <div class="glossary-item">
+                    <div class="glossary-function">cv2.resize</div>
+                    <div class="glossary-description">
+                      Permite cambiar las dimensiones de una imagen. Permite redimensionarla a un tamaño específico o escalarla según un factor determinado.
+                    </div>
+                </div>
+
+                <div class="glossary-item">
+                    <div class="glossary-function">cv2.imread()</div>
+                    <div class="glossary-description">
+                        Función de OpenCV que lee una imagen desde un archivo. 
+                        Soporta múltiples formatos como JPG, PNG, BMP, etc.
+                    </div>
+                </div>
+
+                <div class="glossary-item">
+                    <div class="glossary-function">cv2.imshow()</div>
+                    <div class="glossary-description">
+                        Función de OpenCV que muestra una imagen en una ventana nueva. 
+                        Requiere cv2.waitKey() para mantener la ventana abierta.
+                    </div>
+                </div>
+
+                <div class="glossary-item">
+                    <div class="glossary-function">cv2.destroyAllWindows()</div>
+                    <div class="glossary-description">
+                        Cierra todas las ventanas de OpenCV que están abiertas. 
+                        Útil para liberar recursos después de mostrar imágenes.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function copiarCodigo() {
+            const codigo = document.querySelector('.code-content code').innerText;
+            navigator.clipboard.writeText(codigo).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                btn.textContent = '¡Copiado!';
+                btn.style.color = '#00ff00';
+                btn.style.borderColor = '#00ff00';
+                setTimeout(() => {
+                    btn.textContent = 'Copiar';
+                    btn.style.color = '#fff';
+                    btn.style.borderColor = '#333';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

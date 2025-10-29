@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)file:///C:/Users/MATUTINO/Desktop/VA/vision_artificial_portfolio.html -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visión Artificial con Python</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #000;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+            border-bottom: 1px solid #333;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+
+        .hero .author {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: #aaa;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+        }
+
+        .hero .author span {
+            color: #fff;
+            font-weight: 400;
+        }
+
+        .catalog {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .catalog h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 300;
+            margin-bottom: 4rem;
+            letter-spacing: 0.05em;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background-color: #111;
+            border: 2px solid;
+            border-image: linear-gradient(135deg, #ff0000, #00ff00, #0000ff) 1;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, #ff0000, #00ff00, #0000ff);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.2);
+        }
+
+        .card:hover::before {
+            opacity: 0.3;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 250px;
+            background-color: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #333;
+            overflow: hidden;
+        }
+
+        .card-image svg {
+            width: 80px;
+            height: 80px;
+            stroke: #fff;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .card-image svg {
+            transform: scale(1.1);
+        }
+
+        .card-content {
+            padding: 2rem 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.03em;
+        }
+
+        .card-number {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 300;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 2rem;
+            }
+
+            .catalog {
+                padding: 3rem 1rem;
+            }
+
+            .cards-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .card.new-card {
+            border-image: linear-gradient(135deg, #00ff00, #00ffff, #ff00ff) 1;
+        }
+
+        .card.new-card::before {
+            background: linear-gradient(135deg, #00ff00, #00ffff, #ff00ff);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 2rem;
+            }
+
+            .catalog {
+                padding: 3rem 1rem;
+            }
+
+            .cards-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <h1>Visión Artificial<br>con Python</h1>
+        <p class="author">Realizado por: <span>Castillo Ovando Manuel</span></p>
+    </section>
+
+    <section class="catalog">
+        <h2>Catálogo de Temas</h2>
+        <div class="cards-container">
+            <div class="card">
+                <div class="card-image">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Abrir Imagen con Python</h3>
+                    <p class="card-number">Tema 01</p>
+                    <a href="file:///C:/Users/MATUTINO/Desktop/VA/Abrir%20imagen.html">Link de prueba</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M12 1v6m0 6v6m11-11h-6m-6 0H1"></path>
+                        <circle cx="12" cy="12" r="10"></circle>
+                    </svg>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Escala de Grises</h3>
+                    <p class="card-number">Tema 02</p>
+                    <a href="file:///C:/Users/MATUTINO/Desktop/VA/Escala%20de%20grises.html">Link de prueba</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                    </svg>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Información de Imagen</h3>
+                    <p class="card-number">Tema 03</p>
+                    <a href="file:///C:/Users/MATUTINO/Desktop/VA/Informacion%20de%20imagen.html">Link de prueba</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                        <path d="M21 3H3v18h18V3z"></path>
+                        <path d="M7 7h10v10H7z"></path>
+                        <path d="M3 7l4-4m14 0l-4 4M3 17l4 4m14-4l-4 4"></path>
+                    </svg>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Ajustar Tamaño</h3>
+                    <p class="card-number">Tema 04</p>
+                    <a href="file:///C:/Users/MATUTINO/Desktop/VA/Ajustar%20tama%C3%B1o.html">Link de prueba</a>
+                </div>
+                
+            </div>
+            <div class="card new-card">
+                <div class="card-image">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                        <rect x="3" y="3" width="7" height="7"/>
+                        <rect x="14" y="3" width="7" height="7"/>
+                        <rect x="14" y="14" width="7" height="7"/>
+                        <rect x="3" y="14" width="7" height="7"/>
+                    </svg>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Coordenadas</h3>
+                    <p class="card-number">Tema 05</p>
+                    <a href="Coordenadas.html">Link de prueba</a>
+                </div>
+            </div>
+
+            <div class="card new-card">
+                <div class="card-image">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                        <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+                        <path d="M8 12h8M12 8v8"/>
+                    </svg>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Movimientos</h3>
+                    <p class="card-number">Tema 06</p>
+                    <a href="movimientos.html">Link de prueba</a>
+                </div>
+            </div>
+
+            <div class="card new-card">
+                <div class="card-image">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                        <rect x="2" y="6" width="20" height="12" rx="2"/>
+                        <circle cx="8" cy="12" r="2"/>
+                        <path d="M18 12h.01M14 12h.01"/>
+                    </svg>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">??????????????</h3>
+                    <p class="card-number">Tema ???????????</p>
+                </div>
+            </div>
+
+            <div class="card new-card">
+                <div class="card-image">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                        <polyline points="9 22 9 12 15 12 15 22"/>
+                    </svg>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">??????????????????</h3>
+                    <p class="card-number">Tema ????????????</p>
+                </div>
+            </div>
+
+            <div class="card new-card">
+                <div class="card-image">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                    </svg>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">?????????????????</h3>
+                    <p class="card-number">Tema ?????????</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body></html>
